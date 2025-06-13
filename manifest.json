@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "ImprovEdge New Tab",
+  "version": "1.0.0",
+  "description": "ImprovEdge New Tab: A customizable new tab experience for Edge.",
+  "permissions": [
+    "storage",
+    "geolocation"
+  ],
+  "host_permissions": [
+    "https://api.openweathermap.org/*",
+    "https://api.quotable.io/*",
+    "https://picsum.photos/*"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "action": {
+    "default_title": "ImprovEdge New Tab"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+} 

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary min-h-screen;
+  }
+}
+
+@layer components {
+  .widget {
+    @apply bg-secondary rounded-lg p-4 shadow-lg;
+  }
+  
+  .btn {
+    @apply px-4 py-2 rounded-md bg-accent hover:bg-accent/90 transition-colors;
+  }
+  
+  .input {
+    @apply bg-primary border border-gray-700 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-accent;
+  }
+} 

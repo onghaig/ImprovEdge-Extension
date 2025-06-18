@@ -22,9 +22,8 @@ export default function WelcomeDialog() {
 
   const checkWelcomeStatus = async () => {
     const lastWelcome = await getStorage('lastWelcome');
-    const today = new Date().toDateString();
     
-    if (!lastWelcome || lastWelcome.date !== today) {
+    if (!lastWelcome) {
       setIsOpen(true);
       // Prompt for location during initial setup
       promptForLocation();

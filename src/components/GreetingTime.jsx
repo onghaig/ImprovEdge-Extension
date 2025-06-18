@@ -110,14 +110,32 @@ export default function GreetingTime({ onStartPomodoro }) {
     }
   };
 
-  const handleChangeFocus = () => {
+  const handleChangeFocus = async () => {
     const newFocus = prompt('What is your main focus for today?');
     if (newFocus) {
       setDailyGoal(newFocus);
-      setStorage('dailyGoal', {
+      await setStorage('dailyGoal', {
         text: newFocus,
         date: new Date().toDateString()
       });
+      
+      // Add to todo list
+      const todos = await getStorage('todos') || [];
+      const today = new Date().toDateString();
+      
+      // Remove any existing daily goal from todos
+      const filteredTodos = todos.filter(todo => !todo.isDailyGoal);
+      
+      // Add new daily goal
+      filteredTodos.unshift({
+        id: Date.now(),
+        text: newFocus,
+        completed: false,
+        isDailyGoal: true,
+        date: today
+      });
+      
+      await setStorage('todos', filteredTodos);
     }
   };
 
